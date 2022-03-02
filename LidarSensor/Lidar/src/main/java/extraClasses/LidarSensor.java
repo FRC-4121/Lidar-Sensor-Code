@@ -1,12 +1,11 @@
 package extraClasses;
 import edu.wpi.first.wpilibj.Counter;
 import edu.wpi.first.wpilibj.DigitalSource;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class LidarSensor {
 
 // Offset for cm
-private static final int CALIBRATION_OFFSET = -18;
+
 
 private Counter counter;
 
@@ -22,15 +21,9 @@ public LidarSensor (DigitalSource source) {
 public double getDistance() {
 	double cm;
 	double inches;
-	cm = (counter.getPeriod() * 1000000.0 / 10.0) + CALIBRATION_OFFSET;
+	cm = (counter.getPeriod() * 1000000.0 / 10.0);
 	inches = (cm / 2.54);
 	return inches;
-	}
-
-	public void displayInches() {
-		double cm = (counter.getPeriod() * 1000000.0 / 10.0) + CALIBRATION_OFFSET;
-		double inches = (cm / 2.54);
-		SmartDashboard.putNumber("inches", inches);
 	}
 }
 
