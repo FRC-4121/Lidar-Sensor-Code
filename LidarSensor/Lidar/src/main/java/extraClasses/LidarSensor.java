@@ -21,7 +21,7 @@ public LidarSensor (DigitalSource source) {
 public double getDistance() {
 	double cm;
 	double inches;
-	cm = (counter.getPeriod() * 1000000.0 / 10.0);
+	cm = (counter.getPeriod() * 1000000.0 / 10.0) + 10;
 	inches = (cm / 2.54);
 	return inches;
 	}
